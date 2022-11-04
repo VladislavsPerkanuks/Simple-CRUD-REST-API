@@ -23,3 +23,12 @@ All endpoints are available at:
 - `127.0.0.1:8000/schema/` - Swagger file
 
 `PUT` and `PATCH` are not implemented properly, per assignment tasks, hence throwing 500 error
+
+## Tech stack
+
+- Language: **Python**
+- Framework: **Django REST framework**
+- DB: **SQLite**
+- Additional libraries:
+  - **drf-spectacular**: Swagger generation
+  - **django-filter**: Query filtering
