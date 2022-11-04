@@ -1,0 +1,174 @@
+{
+	"info": {
+		"_postman_id": "2a6a4785-40b4-4f08-8b6d-941952bc2348",
+		"name": "task_vladislavs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21708047"
+	},
+	"item": [
+		{
+			"name": "Get receipts list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/receipts/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"receipts",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create new receipt",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const responseJson = pm.response.json();\r",
+							"pm.globals.set(\"receipt_id\", responseJson.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"created_on\": \"2023-11-12T00:00\",\r\n    \"items\": [\r\n        {\r\n            \"product_name\": \"Sprite\"\r\n        },\r\n        {\r\n            \"product_name\": \"Tea\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/receipts/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"receipts",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get receipts by date",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/receipts/?date_after=2022-12-12&date_before=2024-01-12",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"receipts",
+						""
+					],
+					"query": [
+						{
+							"key": "date_after",
+							"value": "2022-12-12"
+						},
+						{
+							"key": "date_before",
+							"value": "2024-01-12"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get receipts by product name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/receipts/?item=Sprite",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"receipts",
+						""
+					],
+					"query": [
+						{
+							"key": "item",
+							"value": "Sprite"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get receipt",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/receipts/{{receipt_id}}/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"receipts",
+						"{{receipt_id}}",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete receipt",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/receipts/{{receipt_id}}/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"receipts",
+						"{{receipt_id}}",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "404",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/test404",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"test404"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

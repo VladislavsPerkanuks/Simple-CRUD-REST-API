@@ -24,6 +24,16 @@ All endpoints are available at:
 
 `PUT` and `PATCH` are not implemented properly, per assignment tasks, hence throwing 500 error
 
+## Running endpoints
+
+### Swagger UI
+
+- Running through Swagger UI `127.0.0.1:8000/schema/swagger-ui/`
+
+### Postman
+
+- Importing `postman_collection.json` and running endpoints from Postman
+
 ## Tech stack
 
 - Language: **Python**
